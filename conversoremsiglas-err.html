@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Criador de iglas</title>
+</head>
+<body>
+	<textarea id="grupos" cols="30" rows="10"></textarea>
+	<button onclick="siglaConvert()">Converter em siglas</button>
+	<textarea id="siglas_convertidas" cols="30" rows="10"></textarea>
+
+	<script>
+		function siglaConvert(){
+			var grupos = document.querySelector("#grupos").value; //O texto completo
+			var grupos_arr = grupos.split("\n"); //Cada linha um elmento do array
+			var siglas = "";
+			var result = "";
+			for (var i = 0; i < grupos_arr.length; i++) { //Cada frase vira um array de palavras
+				grupos_arr[i] = grupos_arr[i].split(" ");
+				result[i] = "";
+			};
+
+			for (var i = 0; i < grupos_arr.length; i++) { //Cada frase
+				for (var j = 0; j < grupos_arr[i].length; j++) { //Cada palavra
+					result[i] += grupos_arr[i][j][0] //Só a primeira letra
+				};
+				siglas += result[i]+"\n";
+			};
+			document.getElementById('siglas_convertidas').innerHTML = siglas;
+		}
+	</script>
+</body>
+</html>
