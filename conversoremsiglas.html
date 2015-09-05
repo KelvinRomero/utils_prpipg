@@ -1,19 +1,26 @@
+<!-- 
+	Created by: Kelvin Romero
+	Simple text to abbreviation conversor.
+	Version 0.1 05/09/2015
+ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Criador de iglas</title>
+	<title>Extrair siglas</title>
 </head>
 <body>
-	<textarea id="grupos" cols="30" rows="10"></textarea>
+	<h2>Converter conjunto de texto em SIGLA</h2>
+	<p>Descrição: Cada linha é convertida é uma sigla diferente.</p>
+	<textarea name="texto" autofocus id="grupos" cols="30" rows="10"></textarea>
 	<button onclick="siglaConvert()">Converter em siglas</button>
-	<textarea id="result" cols="30" rows="10"></textarea>
-
+	<textarea name="siglas" id="siglasExtraidas" cols="30" rows="10"></textarea>
 	<script>
 		function siglaConvert(){
 			var grupos = document.querySelector("#grupos").value; //O texto completo
 			var grupos_arr = grupos.split("\n"); //Cada linha um elmento do array
 			var siglas = "";
+			var result = [];
 			for (var i = 0; i < grupos_arr.length; i++) { //Cada frase vira um array de palavras
 				grupos_arr[i] = grupos_arr[i].split(" ");
 				result[i] = "";
@@ -25,7 +32,7 @@
 				};
 				siglas += result[i]+"\n";
 			};
-			document.getElementById('result').innerHTML = siglas;
+			document.getElementById('siglasExtraidas').innerHTML = siglas;
 		}
 	</script>
 </body>
